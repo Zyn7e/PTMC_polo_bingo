@@ -21,7 +21,6 @@ for (int iColumn = 0; iColumn < 9; iColumn++)
 
         switch (iColumn)
         {
-            
             case 0:
                 carton[iRow, iColumn] = generator.Next(1, 10);
                 break;
