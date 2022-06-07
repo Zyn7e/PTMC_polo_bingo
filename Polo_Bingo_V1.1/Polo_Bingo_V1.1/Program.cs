@@ -7,13 +7,7 @@ int contador;
 
 Random generator = new Random();
 
-for (int iColumn = 0; iColumn < 9; iColumn++)
-{
-    for (int iRow = 0; iRow < 3; iRow++)
-    {
-        carton[iRow, iColumn] = generator.Next(mins_column[iColumn], max_column[iColumn]);
-    }
-}
+for (int iColumn = 0; iColumn < 9; iColumn++) for (int iRow = 0; iRow < 3; iRow++) carton[iRow, iColumn] = generator.Next(mins_column[iColumn], max_column[iColumn]);
 
 
 //Evitar repetición de números.
@@ -73,7 +67,7 @@ for (var i = 0; i < 8; i++)
     if (i == 3) fila++;
 }
 
-for (int iColumn = 0; iColumn < 9; iColumn++)
+for (int iColumn = 0; iColumn < 9; iColumn++) //Bucle para rellenar de ceros la última fila.
 {
     //Compruebo cuantos ceros hay en la columna iterada.
     contador_de_ceros = 0;
@@ -106,23 +100,11 @@ while (contador <= 3)
 contador = 0;
 foreach (var item in carton)
 {
-    switch (item)
-    {
-        case 0:
-            Console.Write("|██");
-            break;
-        case < 10:
-            Console.Write($"|0{item}");
-            break;
-        default:
-            Console.Write($"|{item}");
-            break;
-    }
+    if (item == 0) Console.Write("|██");
+    else if (item < 10) Console.Write($"|0{item}");
+    else Console.Write($"|{item}");
 
     contador++;
 
-    if (contador == 9)
-    {
-        Console.Write("|\n"); contador = 0;
-    }
+    if (contador == 9) { Console.Write("|\n"); contador = 0; }
 }
