@@ -7,6 +7,7 @@ int contador;
 
 Random generator = new Random();
 
+//Generar cartón lleno de npumeros.
 for (int iColumn = 0; iColumn < 9; iColumn++) for (int iRow = 0; iRow < 3; iRow++) carton[iRow, iColumn] = generator.Next(mins_column[iColumn], max_column[iColumn]);
 
 
@@ -45,9 +46,7 @@ foreach (int numero in carton)
 }
 
 
-
-
-//Espacios vacios
+//Generar espacios vacios
 int random_column, fila = 0, contador_de_ceros;
 
 for (var i = 0; i < 8; i++)
@@ -67,7 +66,7 @@ for (var i = 0; i < 8; i++)
     if (i == 3) fila++;
 }
 
-for (int iColumn = 0; iColumn < 9; iColumn++) //Bucle para rellenar de ceros la última fila.
+for (int iColumn = 0; iColumn < 9; iColumn++) //Bucle para rellenar buscar y generar un espacio en blanco en la columna que no haya espacios en blanco.
 {
     //Compruebo cuantos ceros hay en la columna iterada.
     contador_de_ceros = 0;
@@ -81,7 +80,7 @@ for (int iColumn = 0; iColumn < 9; iColumn++) //Bucle para rellenar de ceros la 
 }
 
 contador = 1;
-while (contador <= 3)
+while (contador <= 3) //Rellena los 3 espacios en blanco que faltan en la fila 3.
 {
     random_column = generator.Next(0, 9);
 
